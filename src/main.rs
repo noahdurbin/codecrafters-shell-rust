@@ -20,6 +20,9 @@ fn main() {
         continue;
       } else if command == "exit 0" {
         break;
+      } else if command.starts_with("echo ") {
+        let echo_content = &command[5..];
+        println!("{}", echo_content);
       } else {
         println!("{}: command not found", input.trim());
       }  
