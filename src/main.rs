@@ -2,19 +2,26 @@
 use std::io::{self, Write};
 
 fn main() {
-    
     // Wait for user input
     let stdin = io::stdin();
-    let mut input = String::new();
-    
     
     loop {
       print!("$ ");
+
+      let mut input = String::new();
+
       io::stdout().flush().unwrap();
       
       stdin.read_line(&mut input).unwrap();
 
-      println!("{}: command not found", input.trim());
-      input.clear();
+      let command = input.trim();
+
+      if command.is_empty() {
+        continue;
+      } else if command == "exit 0" {
+        break;
+      } else {
+        println!("{}: command not found", input.trim());
+      }  
     }
 }
