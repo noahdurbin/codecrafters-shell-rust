@@ -4,10 +4,7 @@ use std::collections::HashSet;
 
 fn main() {
     let stdin = io::stdin();
-    let mut builtins = HashSet::new();
-    builtins.insert("echo");
-    builtins.insert("exit");
-    builtins.insert("type");
+    let builtins: HashSet<&str> = HashSet::from(["echo", "exit", "type"]);
     
     loop {
         print!("$ ");
